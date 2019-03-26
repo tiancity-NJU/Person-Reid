@@ -156,7 +156,7 @@ def main(args):
     #    return
 
     # Criterion
-    criterion = SelfTraining_TripletLoss(args.margin, args.num_instances).cuda(),
+    criterion = SelfTraining_TripletLoss(args.margin, args.num_instances).cuda()
 
 
 

@@ -41,7 +41,6 @@ def get_data(name, split_id, data_dir, height, width, batch_size, workers,
     train_transformer = T.Compose([
         T.RandomSizedRectCrop(height, width),
         T.RandomHorizontalFlip(),
-        T.RandomErasing(),
         T.ToTensor(),
         normalizer,
     ])
@@ -69,6 +68,7 @@ def get_data(name, split_id, data_dir, height, width, batch_size, workers,
                      root=dataset.images_dir, transform=test_transformer),
         batch_size=batch_size, num_workers=workers,
         shuffle=False, pin_memory=True)
+
 
     return dataset, num_classes, train_loader, val_loader, test_loader
 
